@@ -1,0 +1,89 @@
+<?xml version="1.0"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+  
+   <parent>
+    <groupId>com.yss.fsip</groupId>
+    <artifactId>parent</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+  </parent>
+  
+  <groupId>com.yss.fsip.common</groupId>
+  <artifactId>com.yss.fsip.common</artifactId>
+  <name>com.yss.fsip.common</name>
+  <url>http://maven.apache.org</url>
+  <packaging>jar</packaging>
+	
+  <dependencies>
+	    <dependency>
+	      <groupId>junit</groupId>
+	      <artifactId>junit</artifactId>
+	      <version>${junit.version}</version>
+	      <scope>test</scope>
+	    </dependency>
+	    <!-- logback -->
+		<dependency> 
+		    <groupId>ch.qos.logback</groupId> 
+		    <artifactId>logback-core</artifactId> 
+		    <version>${logback.core.version}</version>
+		    <type>jar</type> 
+		</dependency> 
+		<dependency> 
+		    <groupId>ch.qos.logback</groupId> 
+		    <artifactId>logback-classic</artifactId> 
+		    <version>${logback.classic.version}</version>
+		    <type>jar</type> 
+		</dependency>
+    	<!-- https://mvnrepository.com/artifact/commons-io/commons-io -->
+		<dependency>
+		    <groupId>commons-io</groupId>
+		    <artifactId>commons-io</artifactId>
+		    <version>${commons.io.version}</version>
+		</dependency>
+
+		<!--jwt-->
+		<dependency>
+			<groupId>io.jsonwebtoken</groupId>
+			<artifactId>jjwt</artifactId>
+			<version>${io.jsonwebtoken.jjwt.version}</version>
+		</dependency>
+
+		  <dependency>
+			  <groupId>com.google.guava</groupId>
+			  <artifactId>guava</artifactId>
+			  <version>${com.google.guava.version}</version>
+		  </dependency>
+
+		  <!-- yaml 解析包 -->
+		  <dependency>
+			  <groupId>org.yaml</groupId>
+			  <artifactId>snakeyaml</artifactId>
+			  <version>${org.yaml.snakeyaml.version}</version>
+		  </dependency>
+		  <dependency>
+			  <groupId>org.bgee.log4jdbc-log4j2</groupId>
+			  <artifactId>log4jdbc-log4j2-jdbc4.1</artifactId>
+			  <version>${org.bgee.log4jdbc.log4j2.version}</version>
+		  </dependency>
+
+		  <!-- jasypt加密工具jar -->
+		  <dependency>
+			  <groupId>org.jasypt</groupId>
+			  <artifactId>jasypt</artifactId>
+			  <version>${org.jasypt.version}</version>
+		  </dependency>
+
+		  <!-- fastjson -->
+		  <dependency>
+			  <groupId>com.alibaba</groupId>
+			  <artifactId>fastjson</artifactId>
+			  <version>${com.alibaba.fastjson.version}</version>
+		  </dependency>
+		  <dependency>
+			  <groupId>org.springframework</groupId>
+			  <artifactId>spring-beans</artifactId>
+		  </dependency>
+  </dependencies>
+
+</project>

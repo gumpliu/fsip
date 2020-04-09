@@ -1,0 +1,4 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.yss.fsip.FSIPAutoConfiguration,\
+com.yss.fsip.FSIPJpaRepositoriesAutoConfiguration,\
+com.yss.fsip.log.core.config.AuditLogConfig

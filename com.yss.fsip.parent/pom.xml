@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  
+  	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.1.4.RELEASE</version>
+		<relativePath/>
+	</parent>
+  
+  <groupId>com.yss.fsip</groupId>
+  <artifactId>parent</artifactId>
+  <version>1.0.0-SNAPSHOT</version>
+  <packaging>pom</packaging>
+
+	<properties>
+		<java.version>1.8</java.version>
+		<source.jdk.version>1.8</source.jdk.version>
+		<target.jdk.version>1.8</target.jdk.version>
+		<junit.version>4.12</junit.version>
+		<logback.core.version>1.2.3</logback.core.version>
+		<logback.classic.version>1.2.3</logback.classic.version>
+		<io.jsonwebtoken.jjwt.version>0.9.1</io.jsonwebtoken.jjwt.version>
+		<com.google.guava.version>23.0</com.google.guava.version>
+		<org.yaml.snakeyaml.version>1.24</org.yaml.snakeyaml.version>
+		<org.bgee.log4jdbc.log4j2.version>1.16</org.bgee.log4jdbc.log4j2.version>
+		<org.jasypt.version>1.9.3</org.jasypt.version>
+		<com.alibaba.fastjson.version>1.2.58</com.alibaba.fastjson.version>
+		<commons.io.version>2.6</commons.io.version>
+		<commons.beanutils.version>1.8.0</commons.beanutils.version>
+		<commons.collections.version>3.2.1</commons.collections.version>
+		<commons.lang.version>2.5</commons.lang.version>
+		<com.yss.fsip.common.version>1.0.0-SNAPSHOT</com.yss.fsip.common.version>
+		<com.yss.fsip.starter.version>1.0.0-SNAPSHOT</com.yss.fsip.starter.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<maven.build.timestamp.format>yyyy-MM-dd HH:mm:ss</maven.build.timestamp.format>
+		<repository.url>http://192.168.101.103:8081/nexus/content/groups/public/</repository.url>
+		<releases.url>http://192.168.101.103:8081/nexus/content/repositories/releases/</releases.url>
+		<snapshot.url>http://192.168.101.103:8081/nexus/content/repositories/snapshots/</snapshot.url>
+	</properties>
+
+	<modules>
+		<module>com.yss.fsip.common</module>
+		<module>com.yss.fsip</module>
+		<module>com.yss.fsip.web</module>
+	</modules>
+	
+	<distributionManagement>
+		<snapshotRepository>
+			<id>snapshots</id>
+			<name>Snapshots</name>
+			<url>${snapshot.url}</url>
+		</snapshotRepository>
+		<repository>
+			<id>releases</id>
+			<name>Releases</name>
+			<url>${releases.url}</url>
+		</repository>
+	</distributionManagement>
+	
+	
+	
+	<pluginRepositories>
+		<pluginRepository>
+			<id>nexus</id>
+			<name>local private nexus</name>
+			<url>${repository.url}</url>
+			<releases>
+				<enabled>true</enabled>
+				<updatePolicy>always</updatePolicy>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+				<updatePolicy>always</updatePolicy>
+			</snapshots>
+		</pluginRepository>
+	</pluginRepositories>
+
+	<build>
+	
+		<sourceDirectory>src/main/java</sourceDirectory>
+		<testSourceDirectory>src/test/java</testSourceDirectory>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+			</resource>
+			<resource>
+				<directory>src/main/java</directory>
+				<excludes>
+					<exclude>**/*.java</exclude>
+				</excludes>
+			</resource>
+		</resources>
+		<testResources>
+			<testResource>
+				<directory>src/test/resources</directory>
+			</testResource>
+			<testResource>
+				<directory>src/test/java</directory>
+				<excludes>
+					<exclude>**/*.java</exclude>
+				</excludes>
+			</testResource>
+		</testResources>
+		<plugins>
+			<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>2.5.1</version>
+					<inherited>true</inherited>
+					<configuration>
+						<encoding>UTF-8</encoding>
+						<source>${source.jdk.version}</source>
+						<target>${target.jdk.version}</target>
+						<compilerVersion>${target.jdk.version}</compilerVersion>
+						<fork>true</fork>
+						<meminitial>128m</meminitial>
+						<maxmem>1024m</maxmem>
+					</configuration>
+				</plugin>
+				
+				<!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-install-plugin -->
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-install-plugin</artifactId>
+					<version>2.5.2</version>
+					<configuration>
+						<encoding>UTF-8</encoding>
+						<source>${source.jdk.version}</source>
+						<target>${target.jdk.version}</target>
+						<compilerVersion>${target.jdk.version}</compilerVersion>
+						<fork>true</fork>
+						<meminitial>128m</meminitial>
+						<maxmem>1024m</maxmem>
+					</configuration>
+				</plugin>	
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-deploy-plugin</artifactId>
+					<version>2.8.2</version>
+					<configuration>
+						<encoding>UTF-8</encoding>
+						<source>${source.jdk.version}</source>
+						<target>${target.jdk.version}</target>
+						<compilerVersion>${target.jdk.version}</compilerVersion>
+						<fork>true</fork>
+						<meminitial>128m</meminitial>
+						<maxmem>1024m</maxmem>
+					</configuration>
+				</plugin>
+
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-release-plugin</artifactId>
+					<version>2.3.2</version>
+					<configuration>
+						<encoding>UTF-8</encoding>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-resources-plugin</artifactId>
+					<version>2.5</version>
+					<configuration>
+						<encoding>UTF-8</encoding>
+						<includeEmptyDirs>true</includeEmptyDirs>
+					</configuration>
+				</plugin>
+
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-dependency-plugin</artifactId>
+					<version>2.4</version>
+				</plugin>
+				
+				
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-jar-plugin</artifactId>
+					<version>2.4</version>
+					<configuration>
+						<includeEmptyDirectories>true</includeEmptyDirectories>
+					</configuration>
+				</plugin>
+
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-war-plugin</artifactId>
+					<version>2.2</version>
+					<inherited>false</inherited>
+					<configuration>
+						<includeEmptyDirectories>true</includeEmptyDirectories>
+						<archive>
+							<manifestFile>META-INF/MANIFEST.MF</manifestFile>
+							<manifest>
+								<addClasspath>true</addClasspath>
+								<classpathPrefix>lib/</classpathPrefix>
+								<addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+								<addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
+							</manifest>
+							<manifestEntries>
+								<Class-Path>.</Class-Path>
+								<Bundle-Version>${project.version}</Bundle-Version>
+								<Built-At>${maven.build.timestamp}</Built-At>
+							</manifestEntries>
+						</archive>
+						<webResources>
+							<resource>
+								<directory>WebContent</directory>
+							</resource>
+						</webResources>
+					</configuration>
+				</plugin>
+
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-javadoc-plugin</artifactId>
+					<version>2.8</version>
+					<configuration>
+						<argLine>-Dfile.encoding=UTF-8</argLine>
+						<aggregate>true</aggregate>
+						<charset>UTF-8</charset>
+						<encoding>UTF-8</encoding>
+						<docencoding>UTF-8</docencoding>
+					</configuration>
+					<executions>
+						<execution>
+							<id>attach-javadocs</id>
+							<phase>site</phase>
+							<goals>
+								<goal>aggregate</goal>
+							</goals>
+						</execution>
+					</executions>
+				</plugin>
+
+		</plugins>
+	</build>
+</project>

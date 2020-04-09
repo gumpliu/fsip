@@ -1,0 +1,3 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.yss.fsip.web.JNDIAutoConfiguration,\
+com.yss.fsip.web.FSIPWebAutoConfiguration
