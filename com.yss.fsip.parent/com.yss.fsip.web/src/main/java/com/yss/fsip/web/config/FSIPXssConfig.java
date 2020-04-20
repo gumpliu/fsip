@@ -1,19 +1,23 @@
 package com.yss.fsip.web.config;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.*;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
 import com.yss.fsip.common.util.PropertiesFormat;
 import com.yss.fsip.common.util.StringUtil;
 import com.yss.fsip.exception.FSIPRuntimeException;
 import com.yss.fsip.web.constants.FSIPWebErrorCode;
-import org.apache.commons.text.StringEscapeUtils;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.util.ResourceUtils;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.Set;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * XSS检查规则配置信息
